@@ -27,7 +27,7 @@ export default function Appointment() {
 
     return(  
     <div className="flex popup"> 
-        <div className="month">
+        <div className="month block ">
             {chooseMonth()}
         </div>
         <div className="appointmentslots">
