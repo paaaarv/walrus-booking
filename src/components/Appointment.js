@@ -9,7 +9,7 @@ export default function Appointment() {
     const showAppointments = () =>  { 
         let timeArrays= ['10:30', '11:00', '11:30', '12:00', '12:30']; 
         return timeArrays.map(appointment => {
-            return <div className="border-2 p-2 border-slate-800 rounded-full" >{appointment}</div>
+            return <div className="timeslot rounded-full" >{appointment}</div>
             })
     };
 
@@ -26,11 +26,15 @@ export default function Appointment() {
      };
 
     return(  
-    <Fragment className="flex"> 
-        {chooseMonth()}
-        {showAppointments()}
+    <div className="flex popup"> 
+        <div className="month">
+            {chooseMonth()}
+        </div>
+        <div className="appointmentslots">
+            {showAppointments()}
+        </div>
     
-    </Fragment>
+    </div>
     )
 
 }
