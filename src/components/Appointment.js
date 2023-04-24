@@ -4,15 +4,21 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs, { Dayjs } from 'dayjs';
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
 
 export default function Appointment() {
     const [value, setValue] = useState(dayjs());
 
     const showAppointments = () =>  { 
         let timeArrays= ['10:30', '11:00', '11:30', '12:00', '12:30']; 
-        return timeArrays.map(appointment => {
-            return <div className="timeslot rounded-full" >{appointment}</div>
-            })
+        return (
+            <Stack>
+                {timeArrays.map(appointment => {
+                    return <Chip label={appointment}></Chip>
+                })}
+            </Stack>
+        )
     };
 
     return(  
@@ -26,6 +32,7 @@ export default function Appointment() {
 
         /> 
         </LocalizationProvider>
+        {showAppointments()}
     </div>
     )
 
