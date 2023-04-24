@@ -4,7 +4,6 @@
 
 .popup {
     width: 70%; 
-    display: inline-flex; 
     border: 1px solid black; 
     padding: 20px;
 }
