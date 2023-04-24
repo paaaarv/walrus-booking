@@ -1,8 +1,8 @@
 import { Fragment } from "react"; 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import dayjs, { Dayjs } from 'dayjs';
 
 export default function Appointment() {
 
@@ -13,27 +13,13 @@ export default function Appointment() {
             })
     };
 
-    const chooseMonth = () => {
-        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        let currentMonth = new Date().getMonth();
-            return( 
-                <Fragment>
-                    <FontAwesomeIcon icon={faArrowLeft}/>
-                         {months[currentMonth]} 
-                    <FontAwesomeIcon icon={faArrowRight}/>
-                </Fragment> 
-            )
-     };
+   
 
     return(  
     <div className="flex popup"> 
-        <div className="month block ">
-            {chooseMonth()}
-        </div>
-        <div className="appointmentslots">
-            {showAppointments()}
-        </div>
-    
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DateCalendar /> 
+        </LocalizationProvider>
     </div>
     )
 
